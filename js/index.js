@@ -7,88 +7,122 @@ let one = $('#rowOne>td'),
    seven = $('#rowSeven>td'),
    eight = $('#rowEight>td'),
    nine = $('#rowNine>td'),
-   ten = $('#rowTen>td');
+   ten = $('#rowTen>td'),
+   questionItem = $('.questions-list>li');
 
-let check = () => {
-   console.log('Clicked');
+let answers = [];
 
-   // ONES
-   for (let i = 0; i < one.length; i++) {
-      if ($(one[i]).find('.num-input').val() === ((i+1) * 1).toString())
-         $(one[i]).addClass('table-success');
-      else
-         $(one[i]).addClass('table-danger');
+for (let i = 0; i < questionItem.length; i++) {
+   let firstNum = (Math.floor(Math.random() * 10)) + 1;
+   let secondNum = (Math.floor(Math.random() * 10)) + 1;
+   $(questionItem[i]).text(firstNum + ' x ' + secondNum + ' = ');
+
+   let input = document.createElement('input');
+   $(input).addClass('num-question-input');
+
+   $(questionItem[i]).append(input);
+
+   answers.push(firstNum * secondNum);
+}
+
+
+
+let check = (type) => {
+   switch (type) {
+      case 'table':
+         // ONES
+         for (let i = 0; i < one.length; i++) {
+            if ($(one[i]).find('.num-input').val() === ((i + 1) * 1).toString())
+               $(one[i]).addClass('table-success');
+            else
+               $(one[i]).addClass('table-danger');
+         }
+
+         // TWO
+         for (let i = 0; i < two.length; i++) {
+            if ($(two[i]).find('.num-input').val() === ((i + 1) * 2).toString())
+               $(two[i]).addClass('table-success');
+            else
+               $(two[i]).addClass('table-danger');
+         }
+
+         // THREE
+         for (let i = 0; i < two.length; i++) {
+            if ($(three[i]).find('.num-input').val() === ((i + 1) * 3).toString())
+               $(three[i]).addClass('table-success');
+            else
+               $(three[i]).addClass('table-danger');
+         }
+
+         // FOUR
+         for (let i = 0; i < two.length; i++) {
+            if ($(four[i]).find('.num-input').val() === ((i + 1) * 4).toString())
+               $(four[i]).addClass('table-success');
+            else
+               $(four[i]).addClass('table-danger');
+         }
+
+         // FIVE
+         for (let i = 0; i < two.length; i++) {
+            if ($(five[i]).find('.num-input').val() === ((i + 1) * 5).toString())
+               $(five[i]).addClass('table-success');
+            else
+               $(five[i]).addClass('table-danger');
+         }
+
+         // SIX
+         for (let i = 0; i < two.length; i++) {
+            if ($(six[i]).find('.num-input').val() === ((i + 1) * 6).toString())
+               $(six[i]).addClass('table-success');
+            else
+               $(six[i]).addClass('table-danger');
+         }
+
+         // SEVEN
+         for (let i = 0; i < two.length; i++) {
+            if ($(seven[i]).find('.num-input').val() === ((i + 1) * 7).toString())
+               $(seven[i]).addClass('table-success');
+            else
+               $(seven[i]).addClass('table-danger');
+         }
+
+         // EIGHT
+         for (let i = 0; i < two.length; i++) {
+            if ($(eight[i]).find('.num-input').val() === ((i + 1) * 8).toString())
+               $(eight[i]).addClass('table-success');
+            else
+               $(eight[i]).addClass('table-danger');
+         }
+
+         // NINE
+         for (let i = 0; i < two.length; i++) {
+            if ($(nine[i]).find('.num-input').val() === ((i + 1) * 9).toString())
+               $(nine[i]).addClass('table-success');
+            else
+               $(nine[i]).addClass('table-danger');
+         }
+
+         // TEN
+         for (let i = 0; i < two.length; i++) {
+            if ($(ten[i]).find('.num-input').val() === ((i + 1) * 10).toString())
+               $(ten[i]).addClass('table-success');
+            else
+               $(ten[i]).addClass('table-danger');
+         }
+         break;
+
+      case 'questions':
+         for (let i = 0; i < questionItem.length; i++) {
+            if ($(questionItem[i]).find('.num-question-input').val() === answers[i].toString())
+               $(questionItem[i]).css('background-color', '#d1e7dd');
+            else
+               $(questionItem[i]).css('background-color', '#f8d7da');
+         }
+         break;
+
+      default:
+         break;
    }
 
-   // TWO
-   for (let i = 0; i < two.length; i++) {
-      if ($(two[i]).find('.num-input').val() === ((i+1) * 2).toString())
-         $(two[i]).addClass('table-success');
-      else
-         $(two[i]).addClass('table-danger');
-   }
 
-   // THREE
-   for (let i = 0; i < two.length; i++) {
-      if ($(three[i]).find('.num-input').val() === ((i + 1) * 3).toString())
-         $(three[i]).addClass('table-success');
-      else
-         $(three[i]).addClass('table-danger');
-   }
-
-   // FOUR
-   for (let i = 0; i < two.length; i++) {
-      if ($(four[i]).find('.num-input').val() === ((i + 1) * 4).toString())
-         $(four[i]).addClass('table-success');
-      else
-         $(four[i]).addClass('table-danger');
-   }
-
-   // FIVE
-   for (let i = 0; i < two.length; i++) {
-      if ($(five[i]).find('.num-input').val() === ((i + 1) * 5).toString())
-         $(five[i]).addClass('table-success');
-      else
-         $(five[i]).addClass('table-danger');
-   }
-
-   // SIX
-   for (let i = 0; i < two.length; i++) {
-      if ($(six[i]).find('.num-input').val() === ((i + 1) * 6).toString())
-         $(six[i]).addClass('table-success');
-      else
-         $(six[i]).addClass('table-danger');
-   }
-
-   // SEVEN
-   for (let i = 0; i < two.length; i++) {
-      if ($(seven[i]).find('.num-input').val() === ((i + 1) * 7).toString())
-         $(seven[i]).addClass('table-success');
-      else
-         $(seven[i]).addClass('table-danger');
-   }
-
-   // EIGHT
-   for (let i = 0; i < two.length; i++) {
-      if ($(eight[i]).find('.num-input').val() === ((i + 1) * 8).toString())
-         $(eight[i]).addClass('table-success');
-      else
-         $(eight[i]).addClass('table-danger');
-   }
-
-   // NINE
-   for (let i = 0; i < two.length; i++) {
-      if ($(nine[i]).find('.num-input').val() === ((i + 1) * 9).toString())
-         $(nine[i]).addClass('table-success');
-      else
-         $(nine[i]).addClass('table-danger');
-   }
-
-   // TEN
-   for (let i = 0; i < two.length; i++) {
-      if ($(ten[i]).find('.num-input').val() === ((i + 1) * 10).toString())
-         $(ten[i]).addClass('table-success');
-      else
-         $(ten[i]).addClass('table-danger');
-   }
 }

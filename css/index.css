@@ -1,3 +1,11 @@
+h1{
+   text-align: center;
+}
+
+.spacer{
+   height: 100px;
+}
+
 .table{
    empty-cells: hide;
 }
@@ -9,4 +17,21 @@
 
 .num-input {
    width: 75%;
+}
+
+.num-question-input{
+   width: 25%;
+}
+
+.questions-list{
+   text-align: center;
+}
+
+.check-btn{
+   width: 200px;
+   padding: 20px 10px;
+}
+
+#questions{
+   margin: 10px;
 }
