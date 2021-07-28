@@ -1,6 +1,10 @@
+.table{
+   empty-cells: hide;
+}
+
 .num-head {
    width: 7%;
-   background-color: aliceblue;
+   background-color: aliceblue !important;
 }
 
 .num-input {
